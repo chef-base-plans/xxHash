@@ -1,4 +1,4 @@
-pkg_name=xxHash
+pkg_name=xxhash
 pkg_origin=core
 pkg_version="0.8.0"
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
