@@ -3,7 +3,7 @@
 
 pkg_name=xxHash
 
-pkg_origin=duddela_tryhabitat
+pkg_origin=core
 
 pkg_version="0.8.0"
 
