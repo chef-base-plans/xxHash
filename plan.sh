@@ -6,6 +6,10 @@ pkg_license=('BSD 2-Clause License' 'GPL V2')
 pkg_deps=(core/glibc)
 pkg_build_deps=(core/make core/gcc core/git)
 pkg_upstream_url="https://github.com/Cyan4973/xxHash"
+pkg_bin_dirs=(bin)
+pkg_include_dirs=(include)
+pkg_lib_dirs=(lib)
+pkg_pconfig_dirs=(lib/pkgconfig)
 
 do_begin() {
   do_default_begin
