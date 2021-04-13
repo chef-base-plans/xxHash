@@ -2,6 +2,7 @@ title 'Tests to confirm xxhash works as expected'
 
 plan_origin = ENV['HAB_ORIGIN']
 plan_name = input('plan_name', value: 'xxhash')
+plan_ident = "#{plan_origin}/#{plan_name}"
 
 control 'core-plans-xxhash-works' do
   impact 1.0
@@ -14,13 +15,13 @@ control 'core-plans-xxhash-works' do
       xxhsum 0.8.0 by Yann Collet
       compiled as 64-bit x86_64 + SSE2 little endian with GCC 9.1.0'
 
-  plan_installation_directory = command("hab pkg path #{plan_origin}/#{plan_name}")
-  describe plan_installation_directory do
+  hab_pkg_path = command("hab pkg path #{plan_ident}")
+  describe hab_pkg_path do
     its('exit_status') { should eq 0 }
     its('stdout') { should_not be_empty }
   end
 
-  command_full_path = File.join(plan_installation_directory.stdout.strip, "bin", "xxhsum")
+  command_full_path = File.join(hab_pkg_path.stdout.strip, "bin", "xxhsum")
   describe command("#{command_full_path} --version") do
     its('exit_status') { should eq 0 }
     its('stdout') { should_not be_empty }
