@@ -26,5 +26,6 @@ control 'core-plans-xxhash-works' do
     its('exit_status') { should eq 0 }
     its('stdout') { should_not be_empty }
     its('stdout') { should match /xxhsum #{hab_pkg_path.stdout.strip.split('/')[5]}/ }
+    its('stderr') { should be_empty }
   end
 end
