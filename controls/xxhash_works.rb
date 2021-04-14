@@ -22,10 +22,10 @@ control 'core-plans-xxhash-works' do
   end
 
   command_full_path = File.join(hab_pkg_path.stdout.strip, "bin", "xxhsum")
-  describe command("#{command_full_path} --version") do
+  # redirect stderr to stdout.
+  describe command("#{command_full_path} --version 2>&1") do
     its('exit_status') { should eq 0 }
     its('stdout') { should_not be_empty }
     its('stdout') { should match /xxhsum #{hab_pkg_path.stdout.strip.split('/')[5]}/ }
-    its('stderr') { should be_empty }
   end
 end
