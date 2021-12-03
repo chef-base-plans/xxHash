@@ -1,6 +1,6 @@
 pkg_name=xxhash
 pkg_origin=core
-pkg_version="0.8.0"
+pkg_version="0.8.1"
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_license=('BSD 2-Clause License' 'GPL V2')
 pkg_deps=(core/glibc)
